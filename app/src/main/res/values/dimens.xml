@@ -39,6 +39,7 @@
     <dimen name="vs_30">30mm</dimen>
     <dimen name="vs_35">35mm</dimen>
     <dimen name="vs_40">40mm</dimen>
+    <dimen name="vs_45">45mm</dimen>
     <dimen name="vs_48">48mm</dimen>
     <dimen name="vs_50">50mm</dimen>
     <dimen name="vs_60">60mm</dimen>
@@ -72,6 +73,7 @@
     <dimen name="vs_360">360mm</dimen>
     <dimen name="vs_390">390mm</dimen>
     <dimen name="vs_400">400mm</dimen>
+    <dimen name="vs_440">440mm</dimen>
     <dimen name="vs_410">410mm</dimen>
     <dimen name="vs_470">470mm</dimen>
     <dimen name="vs_480">480mm</dimen>
