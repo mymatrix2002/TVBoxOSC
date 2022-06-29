@@ -103,7 +103,10 @@ public class SearchActivity extends BaseActivity {
             }
         });
         mGridView.setHasFixedSize(true);
+        // lite
         mGridView.setLayoutManager(new V7LinearLayoutManager(this.mContext, 1, false));
+        // with preview
+        // mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 3));
         searchAdapter = new SearchAdapter();
         mGridView.setAdapter(searchAdapter);
         searchAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -298,7 +301,7 @@ public class SearchActivity extends BaseActivity {
 
         ArrayList<String> siteKey = new ArrayList<>();
         for (SourceBean bean : searchRequestList) {
-            if (!bean.isActive()) {
+            if (!bean.isSearchable()) {
                 continue;
             }
             siteKey.add(bean.getKey());
@@ -347,6 +350,13 @@ public class SearchActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         cancel();
+        try {
+            if (searchExecutorService != null) {
+                searchExecutorService.shutdownNow();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
         EventBus.getDefault().unregister(this);
     }
 }
